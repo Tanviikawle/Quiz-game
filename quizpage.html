@@ -21,10 +21,6 @@
         </div>
     </nav>
 
-    <div class="buttons  container" id="btn">
-        <button class="button is-primary quiz1" id="quiz">Take a quiz</button>
-    </div>
-
     <!-- <div class="control">
         <label class="radio">
           <input type="radio" name="answer" value="true">
@@ -35,8 +31,31 @@
           False
         </label>
     </div> -->
-    <h3 id="timer">00:00</h3>
+    <div>
+      <div class="tile">
+        <h3 id="timer">00 : 00</h3>
+      </div>
+    </div>
+
+    <form class="control" id="radio_buttons">
+      <label class="radio">
+        <input type="radio" name="answer" id="radio-1" value="true">
+        True
+      </label>
+      <label class="radio">
+        <input type="radio" name="answer" id="radio-2" value="false">
+        Flase
+      </label>
+    </form>
+    <div id="container"></div>
     
+    <div class="buttons  container" id="btn">
+      <button class="button is-primary quiz1" id="quiz">Start quiz</button>
+    </div>
+
+    <!-- <div class="buttons  container" id="submit">
+      <button class="button is-primary">Submit</button>
+    </div> -->
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

@@ -1,6 +1,6 @@
 html{
     height: 100%;
-    background-image: linear-gradient(to bottom right, rgb(24, 5, 59), rgb(2, 44, 100));
+    background-image: linear-gradient( to bottom, rgb(13, 18, 36) 10.9%, rgb(50, 52, 73) 87.1% );
     background-repeat: no-repeat;
 }
 
@@ -29,4 +29,23 @@ display: flexbox;
     text-align: center;
     color: white;
     font-size: 30px;
+    padding: 10px,20px;
+
+}
+
+#timer {
+    padding: 10px,20px;
+    border: 1px solid red;
+    margin: 20px;
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+}
+
+.tile {
+    justify-content: center;
+}
+
+#container{
+    color: white;
 }

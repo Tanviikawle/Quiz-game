@@ -49,3 +49,7 @@ display: flexbox;
 #container{
     color: white;
 }
+
+.result_text{
+    color: white;
+}

@@ -5,17 +5,24 @@ time=document.getElementById("timer")
 container = document.getElementById('container')
 r=document.getElementById("radio_buttons")
 radio_values=document.getElementsByName('answer');
+result=document.getElementById("result_button")
+back=document.getElementById("back_button")
 time.classList.add("quiztext")
 
 let SEC=10
 let i=0
 let j
+let n
+let not_ans=0
+let correct=0
+let wrong=0
 let correct_answer_arr=[]
 let question_arr=[]
 let user_answer=[]
 let seconds=SEC
 let display_time
 r.hidden=true
+let result_nodes=[]
 
 //Get data from trivia database.
 const res=async()=>{
@@ -27,7 +34,7 @@ const res=async()=>{
 function addItems(item){
     q=item.question
     question_arr.push(q)
-    answer=item.correct_answer
+    answer=(item.correct_answer).toLowerCase()
     correct_answer_arr.push(answer);
 }
 
@@ -47,9 +54,11 @@ function add_user_answers(){
 
 function on_submit(){
     add_user_answers()
-    // console.log(user_answer)
     if(user_answer.length==10){
         submit_button.disabled=true
+        result_button=create_button("Result")
+        result.appendChild(result_button)
+        result_button.addEventListener("click",check_answer)
     }
     clearInterval(display_time);
     display()
@@ -59,7 +68,6 @@ function on_submit(){
 //Remove existing radio buttons and add them again on DOM.
 function add_radio_buttons() {
     r.hidden=false
-    // submit_button.display="none"
     submit_button.addEventListener("click",on_submit)
 }
 
@@ -79,9 +87,9 @@ const next_question=()=>{
         i=i+1
         seconds=SEC
     }else{
+        document.body.removeChild(r)
         text.innerHTML="No more questions!"
         clearInterval(display_time)
-        // console.log("stopped!")
         seconds=0
     }
 }
@@ -116,18 +124,56 @@ const display=()=>{
     next_question()
 }
 
+//create button
+function create_button(b_string){
+    the_button=document.createElement('button')
+    the_button.classList.add("button")
+    the_button.classList.add("is-primary")
+    the_button.textContent = b_string
+    return the_button
+}
+
 //Make changes in DOM after clicking button.
 function clicked(){
     btn.remove()
-    submit_button=document.createElement('button')
-    submit_button.classList.add("button")
-    submit_button.classList.add("is-primary")
-    submit_button.textContent = 'Submit'
+    submit_button=create_button("Submit")
     document.body.append(submit_button)
     clearInterval(display_time);
     display()
     add_radio_buttons()
 }
+
+function check_answer(){
+    let final_result=[]
+    label_list=["not answered","Correct answered","wrong answered"]
+    let x
+    for(n=0;n<user_answer.length;n++){
+        if(user_answer[n]=="null"){
+            not_ans+=1
+        }else if (user_answer[n]==correct_answer_arr[n]){
+            correct+=1
+        }else{
+            wrong+=1
+        }
+    }
+    final_result.push(not_ans,correct,wrong)
+    document.body.removeChild(text)
+    document.body.removeChild(submit_button)
+    result_button.remove()
+
+    for(x=0;x<3;x++){
+        result_num=document.createElement("h3")
+        result_tag=document.createElement("h3")
+        result_num.innerText=final_result[x]
+        result_tag.innerText=label_list[x]
+        result_num.classList.add("result_text")
+        result_tag.classList.add("result_text")
+        document.body.append(result_num,result_tag)
+    }
+    back_button=create_button("Back to home")
+    back.appendChild(back_button)
+}
+
 
 //Get data.
 res()

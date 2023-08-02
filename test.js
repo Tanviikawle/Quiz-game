@@ -12,6 +12,7 @@ s=document.getElementById("btn")
 span_div=document.getElementById("spans")
 to_be_deleted=document.getElementById("stuff")
 completed_msg=document.getElementById("done_text")
+inc=document.getElementById("instructions")
 
 let SEC=10
 let i=0
@@ -140,6 +141,7 @@ function create_button(b_string){
 
 //Make changes in DOM after clicking button.
 function clicked(){
+    inc.remove()
     btn.remove()
     submit_button=create_button("Submit")
     s.append(submit_button)
@@ -189,6 +191,13 @@ function check_answer(){
 }
 
 //Get data.
-res()
+try{
+    res()
+}
+catch(err){
+    err_msg=document.createElement("p")
+    err_msg.innerText=err
+    container.appendChild(err_msg)
+}
 
 btn.addEventListener("click",clicked)

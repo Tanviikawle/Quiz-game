@@ -1,17 +1,76 @@
 html{
-    height: 100%;
-    background-image: linear-gradient( to bottom, rgb(13, 18, 36) 10.9%, rgb(50, 52, 73) 87.1% );
-    background-repeat: no-repeat;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(12, 18, 32)), to(rgb(46, 52, 73) )) fixed;
 }
 
+#main{
+    margin: 50px;
+}
+
+@font-face {
+    font-family: "neon-tubes-2-regular";
+    src:
+      url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+      url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+      url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype")
+    ;
+  }
+  
+  .neon-red {
+    --neon: hsl(355 100% 95%);
+    --neon-glow: hsl(355 98% 40%);
+  }
+  
+  .neon-blue {
+    --neon: hsl(192 100% 95%);
+    --neon-glow: hsl(194, 98%, 34%);
+  }
+  
+  h1 {
+    color: var(--neon);
+    text-shadow: 
+      0 0 20px var(--neon-glow),
+      0 0 2.5vmin var(--neon-glow),
+      0 0 5vmin var(--neon-glow),
+      0 0 10vmin var(--neon-glow),
+      0 0 15vmin var(--neon-glow);
+  }
+    
+  
+  
+  @media (dynamic-range: high) {
+    .neon-red {
+      --neon-glow: color(display-p3 1 0 0);
+    }
+    
+    .neon-blue {
+      --neon-glow: color(display-p3 0 0.75 1);
+    }
+    
+    h1 > i {
+      text-shadow: 
+        0 0 2.5vmin var(--neon-glow),
+        0 0 10vmin var(--neon-glow),
+        0 0 15vmin var(--neon-glow);
+    }
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 25vmin;
+    font-weight: normal;
+  }
+  
+  
+
 #welcome_txt{
-    font-size: 80px;
+    font-family: "neon-tubes-2-regular";
+    font-size: 5rem;
     font-weight: bold;
     text-align: center;
-    margin: 50px;
-    background: -webkit-linear-gradient(#00308F, aqua);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;}
+    animation: neon .08s ease-in-out infinite alternate;
+    color: white;
+    margin: 35px;
+}
 
 #btn{
     display: flex;
@@ -21,8 +80,21 @@ html{
 }
 
 .quiz1{
-margin: 50px;
+/* margin: 50px; */
 display: flexbox;
+background-color: hsla(0, 0%, 0%, 0);
+color: white;
+border: 2px solid rgb(250, 1, 64);
+font-size: large;
+padding: 10px 20px;
+}
+
+.quiz1:hover{
+    background-color: rgb(250, 1, 64);
+    border: 2px solid rgb(250, 1, 64);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .quiztext{
@@ -32,18 +104,33 @@ display: flexbox;
     padding: 10px,20px;
 
 }
-
-#timer {
-    padding: 10px,20px;
-    border: 1px solid red;
-    margin: 20px;
-    /* display: flex; */
-    /* flex-wrap: nowrap; */
-    justify-content: center;
+.button:disabled{
+    background-color: hsla(0, 0%, 0%, 0);
+    /* border-color: #dbdbdb; */
+    box-shadow: none;
+    opacity: .5;
 }
 
-.tile {
+.button:disabled:hover{
+    border-color: white;
+    background-color: hsla(0, 0%, 0%, 0);
+    opacity: .5;
+    cursor: none;
+}
+
+#timer {
     justify-content: center;
+    font-size: 30px;
+    width: fit-content;
+    margin: auto;
+    padding: 10px 20px;
+    border: 0.2rem solid #fff;
+    border-radius: 0.5rem;
+    padding: 0.4em;
+    box-shadow: 0 0 .2rem #fff,
+                /* 0 0 .2rem #fff, */
+                0 0 0.8rem hsl(194, 98%, 34%),
+                inset 0 0 1.3rem hsl(194, 98%, 34%); 
 }
 
 #container{
@@ -52,4 +139,37 @@ display: flexbox;
 
 .result_text{
     color: white;
+}
+
+#radio_buttons{
+    
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    #radio_buttons {
+       display: block; 
+      text-align: center;
+    }
+  }
+
+.radio{
+    margin: 10px;
+}
+
+.column{
+    margin: 10px;
+    text-align: center;
+}
+
+#done_text {
+    font-size: 25px;
+}
+
+.span_style{
+    display: inline-block;
+    margin: 20px;
+    font-size: 25px;
 }

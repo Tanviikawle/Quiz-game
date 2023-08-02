@@ -8,6 +8,10 @@ radio_values=document.getElementsByName('answer');
 result=document.getElementById("result_button")
 back=document.getElementById("back_button")
 time.classList.add("quiztext")
+s=document.getElementById("btn")
+span_div=document.getElementById("spans")
+to_be_deleted=document.getElementById("stuff")
+completed_msg=document.getElementById("done_text")
 
 let SEC=10
 let i=0
@@ -55,8 +59,9 @@ function add_user_answers(){
 function on_submit(){
     add_user_answers()
     if(user_answer.length==10){
+        submit_button.classList.add("button")
         submit_button.disabled=true
-        result_button=create_button("Result")
+        result_button=create_button("Go to Result")
         result.appendChild(result_button)
         result_button.addEventListener("click",check_answer)
     }
@@ -80,14 +85,14 @@ const next_question=()=>{
             text.innerHTML=`${i+1}.${que_text}`
             text.classList.add("container")
             text.classList.add("quiztext")
-            document.body.append(text)
+            container.append(text)
         }else{
             text.innerHTML=`${i+1}.${que_text}`
         }
         i=i+1
         seconds=SEC
     }else{
-        document.body.removeChild(r)
+        to_be_deleted.removeChild(r)
         text.innerHTML="No more questions!"
         clearInterval(display_time)
         seconds=0
@@ -127,8 +132,8 @@ const display=()=>{
 //create button
 function create_button(b_string){
     the_button=document.createElement('button')
-    the_button.classList.add("button")
-    the_button.classList.add("is-primary")
+    // the_button.classList.add("button")
+    the_button.classList.add("quiz1")
     the_button.textContent = b_string
     return the_button
 }
@@ -137,13 +142,14 @@ function create_button(b_string){
 function clicked(){
     btn.remove()
     submit_button=create_button("Submit")
-    document.body.append(submit_button)
+    s.append(submit_button)
     clearInterval(display_time);
     display()
     add_radio_buttons()
 }
 
 function check_answer(){
+    stuff.remove()
     let final_result=[]
     label_list=["not answered","Correct answered","wrong answered"]
     let x
@@ -156,38 +162,33 @@ function check_answer(){
             wrong+=1
         }
     }
+    done_msg=document.createElement("h3")
+    done_msg.innerText="Well Done! You've completed the quiz. Here are results..."
+    done_msg.classList.add("result_text")
+    completed_msg.appendChild(done_msg)
+
     final_result.push(not_ans,correct,wrong)
-    document.body.removeChild(text)
-    document.body.removeChild(submit_button)
-    result_button.remove()
 
     for(x=0;x<3;x++){
         result_num=document.createElement("h3")
+        result_num.style.fontSize="50px"
+        result_num.style.color="rgb(250, 1, 64)"
         result_tag=document.createElement("h3")
+        new_span=document.createElement("span")
+        new_span.classList.add("span_style")
         result_num.innerText=final_result[x]
         result_tag.innerText=label_list[x]
         result_num.classList.add("result_text")
         result_tag.classList.add("result_text")
-        document.body.append(result_num,result_tag)
+        new_span.appendChild(result_num)
+        new_span.appendChild(result_tag)
+        span_div.append(new_span)
     }
     back_button=create_button("Back to home")
     back.appendChild(back_button)
 }
 
-
 //Get data.
 res()
 
 btn.addEventListener("click",clicked)
-
-
-
-
-
-
-
-
-
-
-
-

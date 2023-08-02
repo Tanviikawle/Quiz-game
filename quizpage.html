@@ -8,44 +8,68 @@
     <title>Quiz Game</title>
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">
-          </a>
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+    <div id="stuff">
+      <div class="column">
+        <div class="column is-one-quater">
+          <div class="neon-blue" id="border">
+            <h1 id="timer" class="neon-red">00 : 00</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="column is-three-fifths is-offset-one-fifth">
+          <div id="container"></div>
+        </div>
+      </div>
+    
+      <form class="control" id="radio_buttons">
+        <span>
+          <label class="radio">
+            <input type="radio" name="answer" id="radio-1" value="true">
+            True
+          </label>
+        </span>
+        <span>
+          <label class="radio">
+            <input type="radio" name="answer" id="radio-2" value="false">
+            Flase
+          </label>
+        </span>
+      </form>
+      
+      <div class="column">
+        <div class="column is-three-fifths is-offset-one-fifth">
+          <div class="buttons  container" id="btn">
+            <button class="button quiz1" id="quiz">Start quiz</button>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="is-three-fifths is-offset-one-fifth">
+          <a  id="result_button">
           </a>
         </div>
-    </nav>
-    <div>
-      <div class="tile">
-        <h3 id="timer">00 : 00</h3>
       </div>
     </div>
 
-    <form class="control" id="radio_buttons">
-      <label class="radio">
-        <input type="radio" name="answer" id="radio-1" value="true">
-        True
-      </label>
-      <label class="radio">
-        <input type="radio" name="answer" id="radio-2" value="false">
-        Flase
-      </label>
-    </form>
-    <div id="container"></div>
-    
-    <div class="buttons  container" id="btn">
-      <button class="button is-primary quiz1" id="quiz">Start quiz</button>
+    <div class="column">
+      <div class="is-three-fifths is-offset-one-fifth" id="done_text">
+      </div>
     </div>
 
-    <a  id="result_button">
-    </a>
-    <a  id="back_button" href="index.html">
-    </a>
+    <div class="column">
+      <div class="column is-three-fifths is-offset-one-fifth">
+        <div  id="spans"></div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="is-three-fifths is-offset-one-fifth">
+        <a  id="back_button" href="index.html">
+        </a>
+      </div>
+    </div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

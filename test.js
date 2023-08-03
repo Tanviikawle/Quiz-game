@@ -1,4 +1,3 @@
-const url = "https://opentdb.com/api.php?amount=10&type=boolean"
 btn=document.getElementById("quiz")
 que=document.getElementById("#question")
 time=document.getElementById("timer")
@@ -7,12 +6,14 @@ r=document.getElementById("radio_buttons")
 radio_values=document.getElementsByName('answer');
 result=document.getElementById("result_button")
 back=document.getElementById("back_button")
-time.classList.add("quiztext")
 s=document.getElementById("btn")
 span_div=document.getElementById("spans")
 to_be_deleted=document.getElementById("stuff")
 completed_msg=document.getElementById("done_text")
 inc=document.getElementById("instructions")
+// start=document.getElementById("start")
+// quiz_start=document.getElementById("quiz_begin")
+time.classList.add("quiztext")
 
 let SEC=10
 let i=0
@@ -27,6 +28,7 @@ let user_answer=[]
 let seconds=SEC
 let display_time
 r.hidden=true
+// quiz_start.hidden=true
 let result_nodes=[]
 
 //Get data from trivia database.
@@ -141,6 +143,18 @@ function create_button(b_string){
 
 //Make changes in DOM after clicking button.
 function clicked(){
+    que=document.getElementById("no_questions").value
+    cat=document.getElementById("category").value
+    diff=document.getElementById("difficulty").value
+    url = `https://opentdb.com/api.php?amount=${que}&category=${cat}&difficulty=${diff}&type=boolean`
+    try{
+        res()
+    }
+    catch(err){
+        err_msg=document.createElement("p")
+        err_msg.innerText=err
+        container.appendChild(err_msg)
+    }
     inc.remove()
     btn.remove()
     submit_button=create_button("Submit")
@@ -190,14 +204,15 @@ function check_answer(){
     back.appendChild(back_button)
 }
 
-//Get data.
-try{
-    res()
-}
-catch(err){
-    err_msg=document.createElement("p")
-    err_msg.innerText=err
-    container.appendChild(err_msg)
+function begin(){
+    start.remove()
+    quiz_start.style.display="block"
 }
 
+//Get data.
+
+
 btn.addEventListener("click",clicked)
+// start.addEventListener("click",begin)
+
+// https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=boolean

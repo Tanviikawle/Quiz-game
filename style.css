@@ -187,3 +187,34 @@ padding: 10px 20px;
   color: white;
   text-align: left;
 }
+
+.select{
+  display: block;
+  text-align: left;
+  width: fit-content;
+  margin-bottom: 15px;
+}
+
+.selection{
+  width: fit-content;
+  margin: auto;
+}
+
+.selection_text{
+  color: white;
+  margin-bottom: 10px !important;
+}
+
+select{
+  background: hsla(0, 0%, 0%, 0) !important;
+  color: white !important;
+}
+
+select option{
+  color: black !important;
+}
+
+#start{
+  width: fit-content;
+  margin: auto;
+}

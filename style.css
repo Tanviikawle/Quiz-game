@@ -1,82 +1,82 @@
 html{
-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(12, 18, 32)), to(rgb(46, 52, 73) )) fixed;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(12, 18, 32)), to(rgb(46, 52, 73) )) fixed;
 }
 
 #main{
-    margin: 50px;
+  margin: 50px;
 }
 
 @font-face {
-    font-family: "neon-tubes-2-regular";
-    src:
-      url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
-      url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
-      url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype")
-    ;
-  }
+  font-family: "neon-tubes-2-regular";
+  src:
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype")
+  ;
+}
+
+.neon-red {
+  --neon: hsl(355 100% 95%);
+  --neon-glow: hsl(355 98% 40%);
+}
+
+.neon-blue {
+  --neon: hsl(192 100% 95%);
+  --neon-glow: hsl(194, 98%, 34%);
+}
+
+h1 {
+  color: var(--neon);
+  text-shadow: 
+    0 0 20px var(--neon-glow),
+    0 0 2.5vmin var(--neon-glow),
+    0 0 5vmin var(--neon-glow),
+    0 0 10vmin var(--neon-glow),
+    0 0 15vmin var(--neon-glow);
+}
   
+
+
+@media (dynamic-range: high) {
   .neon-red {
-    --neon: hsl(355 100% 95%);
-    --neon-glow: hsl(355 98% 40%);
+    --neon-glow: color(display-p3 1 0 0);
   }
   
   .neon-blue {
-    --neon: hsl(192 100% 95%);
-    --neon-glow: hsl(194, 98%, 34%);
+    --neon-glow: color(display-p3 0 0.75 1);
   }
   
-  h1 {
-    color: var(--neon);
+  h1 > i {
     text-shadow: 
-      0 0 20px var(--neon-glow),
       0 0 2.5vmin var(--neon-glow),
-      0 0 5vmin var(--neon-glow),
       0 0 10vmin var(--neon-glow),
       0 0 15vmin var(--neon-glow);
   }
-    
-  
-  
-  @media (dynamic-range: high) {
-    .neon-red {
-      --neon-glow: color(display-p3 1 0 0);
-    }
-    
-    .neon-blue {
-      --neon-glow: color(display-p3 0 0.75 1);
-    }
-    
-    h1 > i {
-      text-shadow: 
-        0 0 2.5vmin var(--neon-glow),
-        0 0 10vmin var(--neon-glow),
-        0 0 15vmin var(--neon-glow);
-    }
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 25vmin;
-    font-weight: normal;
-  }
-  
-  
+}
+
+h1 {
+  text-align: center;
+  font-size: 25vmin;
+  font-weight: normal;
+}
+
+
 
 #welcome_txt{
-    font-family: "neon-tubes-2-regular";
-    font-size: 5rem;
-    font-weight: bold;
-    text-align: center;
-    animation: neon .08s ease-in-out infinite alternate;
-    color: white;
-    margin: 35px;
+  font-family: "neon-tubes-2-regular";
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+  animation: neon .08s ease-in-out infinite alternate;
+  color: white;
+  margin: 35px;
 }
 
 #btn{
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .quiz1{
@@ -90,122 +90,100 @@ padding: 10px 20px;
 }
 
 .quiz1:hover{
-    background-color: rgb(250, 1, 64);
-    border: 2px solid rgb(250, 1, 64);
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: rgb(250, 1, 64);
+  border: 2px solid rgb(250, 1, 64);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .quiztext{
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    padding: 10px,20px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  padding: 10px,20px;
 
 }
 .button:disabled{
-    background-color: hsla(0, 0%, 0%, 0);
-    /* border-color: #dbdbdb; */
-    box-shadow: none;
-    opacity: .5;
+  background-color: hsla(0, 0%, 0%, 0);
+  /* border-color: #dbdbdb; */
+  box-shadow: none;
+  opacity: .5;
 }
 
 .button:disabled:hover{
-    border-color: white;
-    background-color: hsla(0, 0%, 0%, 0);
-    opacity: .5;
-    cursor: none;
+  border-color: white;
+  background-color: hsla(0, 0%, 0%, 0);
+  opacity: .5;
+  cursor: none;
 }
 
 #timer {
-    justify-content: center;
-    font-size: 30px;
-    width: fit-content;
-    margin: auto;
-    padding: 10px 20px;
-    border: 0.2rem solid #fff;
-    border-radius: 0.5rem;
-    padding: 0.4em;
-    box-shadow: 0 0 .2rem #fff,
-                /* 0 0 .2rem #fff, */
-                0 0 0.8rem hsl(194, 98%, 34%),
-                inset 0 0 1.3rem hsl(194, 98%, 34%); 
+  justify-content: center;
+  font-size: 30px;
+  width: fit-content;
+  margin: auto;
+  padding: 10px 20px;
+  border: 0.2rem solid #fff;
+  border-radius: 0.5rem;
+  padding: 0.4em;
+  box-shadow: 0 0 .2rem #fff,
+              /* 0 0 .2rem #fff, */
+              0 0 0.8rem hsl(194, 98%, 34%),
+              inset 0 0 1.3rem hsl(194, 98%, 34%); 
 }
 
 #container{
-    color: white;
+  color: white;
 }
 
 .result_text{
-    color: white;
+  color: white;
 }
 
 #radio_buttons{
-    
-    color: white;
-    font-size: 20px;
-    text-align: center;
+  /* display: inline-block;  */
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 
 @media (max-width: 800px) {
-    #radio_buttons {
-       display: block; 
-      text-align: center;
-    }
+  #radio_buttons {
+    text-align: center;
   }
+}
 
 .radio{
-    margin: 10px;
+  margin: 10px;
+  padding: 3px;
+
+  /* transition: border 0.2s;
+  transition-timing-function: linear; */
+
+}
+
+.radio:hover{
+margin: 10px;
+color: white;
+border-bottom: 2px solid rgb(250, 1, 64);
 }
 
 .column{
-    margin: 10px;
-    text-align: center;
+  text-align: center;
 }
 
 #done_text {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .span_style{
-    display: inline-block;
-    margin: 20px;
-    font-size: 25px;
+  display: inline-block;
+  margin: 20px;
+  font-size: 25px;
 }
 
 #instructions{
-  color: white;
-  text-align: left;
-}
-
-.select{
-  display: block;
-  text-align: left;
-  width: fit-content;
-  margin-bottom: 15px;
-}
-
-.selection{
-  width: fit-content;
-  margin: auto;
-}
-
-.selection_text{
-  color: white;
-  margin-bottom: 10px !important;
-}
-
-select{
-  background: hsla(0, 0%, 0%, 0) !important;
-  color: white !important;
-}
-
-select option{
-  color: black !important;
-}
-
-#start{
-  width: fit-content;
-  margin: auto;
+color: white;
+text-align: left;
 }

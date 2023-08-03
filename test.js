@@ -1,3 +1,4 @@
+const url = "https://opentdb.com/api.php?amount=10&type=boolean"
 btn=document.getElementById("quiz")
 que=document.getElementById("#question")
 time=document.getElementById("timer")
@@ -6,10 +7,12 @@ r=document.getElementById("radio_buttons")
 radio_values=document.getElementsByName('answer');
 result=document.getElementById("result_button")
 back=document.getElementById("back_button")
+time.classList.add("quiztext")
 s=document.getElementById("btn")
 span_div=document.getElementById("spans")
 to_be_deleted=document.getElementById("stuff")
 completed_msg=document.getElementById("done_text")
+inc=document.getElementById("instructions")
 
 let SEC=10
 let i=0
@@ -24,7 +27,6 @@ let user_answer=[]
 let seconds=SEC
 let display_time
 r.hidden=true
-// quiz_start.hidden=true
 let result_nodes=[]
 
 //Get data from trivia database.
@@ -188,11 +190,6 @@ function check_answer(){
     back.appendChild(back_button)
 }
 
-function begin(){
-    start.remove()
-    quiz_start.style.display="block"
-}
-
 //Get data.
 try{
     res()
@@ -204,6 +201,3 @@ catch(err){
 }
 
 btn.addEventListener("click",clicked)
-// start.addEventListener("click",begin)
-
-// https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=boolean

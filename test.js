@@ -10,10 +10,6 @@ s=document.getElementById("btn")
 span_div=document.getElementById("spans")
 to_be_deleted=document.getElementById("stuff")
 completed_msg=document.getElementById("done_text")
-inc=document.getElementById("instructions")
-// start=document.getElementById("start")
-// quiz_start=document.getElementById("quiz_begin")
-time.classList.add("quiztext")
 
 let SEC=10
 let i=0
@@ -143,18 +139,6 @@ function create_button(b_string){
 
 //Make changes in DOM after clicking button.
 function clicked(){
-    que=document.getElementById("no_questions").value
-    cat=document.getElementById("category").value
-    diff=document.getElementById("difficulty").value
-    url = `https://opentdb.com/api.php?amount=${que}&category=${cat}&difficulty=${diff}&type=boolean`
-    try{
-        res()
-    }
-    catch(err){
-        err_msg=document.createElement("p")
-        err_msg.innerText=err
-        container.appendChild(err_msg)
-    }
     inc.remove()
     btn.remove()
     submit_button=create_button("Submit")
@@ -210,7 +194,14 @@ function begin(){
 }
 
 //Get data.
-
+try{
+    res()
+}
+catch(err){
+    err_msg=document.createElement("p")
+    err_msg.innerText=err
+    container.appendChild(err_msg)
+}
 
 btn.addEventListener("click",clicked)
 // start.addEventListener("click",begin)

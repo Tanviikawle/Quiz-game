@@ -142,7 +142,7 @@ padding: 10px 20px;
 }
 
 #radio_buttons{
-    /* display: inline-block;  */
+    
     color: white;
     font-size: 20px;
     text-align: center;
@@ -150,26 +150,17 @@ padding: 10px 20px;
 
 @media (max-width: 800px) {
     #radio_buttons {
+       display: block; 
       text-align: center;
     }
   }
 
 .radio{
     margin: 10px;
-    padding: 3px;
- 
-    /* transition: border 0.2s;
-    transition-timing-function: linear; */
-
-}
-
-.radio:hover{
-  margin: 10px;
-  color: white;
-  border-bottom: 2px solid rgb(250, 1, 64);
 }
 
 .column{
+    margin: 10px;
     text-align: center;
 }
 

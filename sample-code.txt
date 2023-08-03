@@ -1,0 +1,20 @@
+ // while (container.hasChildNodes()) {
+    //     container.removeChild(container.firstChild);
+    // }
+    // console.log("removed!!")
+    // for(j=0;j<2;j++){
+    //     var radiobox= document.createElement('input');
+    //     radiobox.type = 'radio';
+    //     radiobox.id = radio_values[j];
+    //     radiobox.value = radio_values[j];
+    //     radiobox.classList.add("is_checked")
+     
+    //     var label = document.createElement('label')
+    //     label.innerText = radio_labels[j];
+    //     label.classList.add("is_checked")
+
+     
+    //     container.appendChild(radiobox);
+    //     container.appendChild(label);
+    // }
+    // console.log("added!")

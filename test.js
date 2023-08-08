@@ -1,5 +1,6 @@
 const url = "https://opentdb.com/api.php?amount=10&type=boolean"
 btn=document.getElementById("quiz")
+s=document.getElementById("btn")
 que=document.getElementById("#question")
 time=document.getElementById("timer")
 container = document.getElementById('container')
@@ -7,12 +8,21 @@ r=document.getElementById("radio_buttons")
 radio_values=document.getElementsByName('answer');
 result=document.getElementById("result_button")
 back=document.getElementById("back_button")
-time.classList.add("quiztext")
-s=document.getElementById("btn")
 span_div=document.getElementById("spans")
 to_be_deleted=document.getElementById("stuff")
 completed_msg=document.getElementById("done_text")
 inc=document.getElementById("instructions")
+time.classList.add("quiztext")
+
+// import {no,diff,category} from "./start"
+
+// params={
+//     amount: no,
+//     difficulty:diff,
+//     category:category,
+//     type:"boolean",
+// }
+
 
 let SEC=10
 let i=0

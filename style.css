@@ -187,3 +187,30 @@ border-bottom: 2px solid rgb(250, 1, 64);
 color: white;
 text-align: left;
 }
+
+select{
+  background-color: hsla(0, 0%, 0%, 0) !important;
+  color: white !important;
+  border: 2px solid rgb(250, 1, 64) !important;
+}
+select option { 
+  color: black !important; 
+}
+
+span{
+  color: white;
+  /* padding: 5px; */
+  margin-left: 12px;
+}
+
+#submitForm{
+  width: fit-content;
+  padding: 0px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#block{
+  display: flex;
+  justify-content: space-evenly;
+}

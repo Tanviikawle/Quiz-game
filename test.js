@@ -21,7 +21,7 @@ cat=document.getElementById("cat")
 
 // import {no,diff,category} from "./start.js";
 
-let SEC=10
+let SEC=30
 let num
 let i=0
 let j

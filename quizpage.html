@@ -19,81 +19,49 @@
       </div>
 
       <div id="instructions" class="column">
-        <div class="column is-three-fifths is-offset-one-fifth">
-          <div>
-            <span>
-                <label>Number of Questions:</label>
-                <div class="select is-small">
-                  <select id="q">
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                  </select>
-                </div>
-            </span>
-            <!-- <span>
-                <label>Select category:</label>
-                <div class="select is-small">
-                  <select id="cat">
-                    <option value="any">Any category</option>
-                    <option value="9">General Knowledge</option>
-                    <option value="10">Entertainment: Books</option>
-                    <option value="11">Entertainment: Film</option>
-                    <option value="12">Entertainment: Music</option>
-                    <option value="13">Entertainment: Musicals & Theatres</option>
-                    <option value="14">Entertainment: Television</option>
-                    <option value="15">Entertainment: Video Games</option>
-                    <option value="16">Entertainment: Board Games</option>
-                    <option value="17">Science & Nature</option>
-                    <option value="18">Science: Computers</option>
-                    <option value="19">Science: Mathematics</option>
-                    <option value="20">Mythology</option>
-                    <option value="21">Sports</option>
-                    <option value="22">Geography</option>
-                    <option value="23">History</option>
-                    <option value="24">Politics</option>
-                    <option value="25">Art</option>
-                    <option value="26">Celebrities</option>
-                    <option value="27">Animals</option>
-                    <option value="28">Vehicles</option>
-                    <option value="29">Entertainment: Comics</option>
-                    <option value="30">Science: Gadgets</option>
-                    <option value="31">Entertainment: Japanese Anime & Manga</option>
-                    <option value="32">Entertainment: Cartoon & Animations</option>
-                  </select>
-                </div>
-            </span> -->
-            <span>
-                <label>Select difficulty:</label>
-                <div class="select is-small">
-                  <select id="type">
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Difficult</option>
-                    <!-- <option value="any">Any</option> -->
+        <div class="column is-full" id="form_data">
+          <span>
+              <label>Number of Questions:</label>
+              <div class="select is-small">
+                <select id="q">
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                </select>
+              </div>
+          </span>
+          <span>
+              <label>Select difficulty:</label>
+              <div class="select is-small">
+                <select id="type">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Difficult</option>
+                  <!-- <option value="any">Any</option> -->
 
-                  </select>
-                </div>
-            </span>
-          </div>
+                </select>
+              </div>
+          </span>
+        </div>
+        <div class="column is-three-fifths is-offset-one-fifth">
           <h2 style="text-align: left; font-size: 20px;">Instructions :</h2>
           <br>
           <ol style="text-align: left;">
@@ -108,13 +76,13 @@
         </div>
       </div>
 
-      <div class="column">
+      <div class="column low_padding" >
         <div class="column is-three-fifths is-offset-one-fifth">
           <div id="container"></div>
         </div>
       </div>
     
-      <form class="control" id="radio_buttons">
+      <form class="control low_padding" id="radio_buttons">
         <span>
           <label class="radio">
             <input type="radio" name="answer" id="radio-1" value="true">
@@ -129,14 +97,14 @@
         </span>
       </form>
       
-      <div class="column">
+      <div class="column low_padding">
         <div class="column is-three-fifths is-offset-one-fifth">
           <div class="buttons  container" id="btn">
             <button class="button quiz1" id="quiz">Start quiz</button>
           </div>
         </div>
       </div>
-      <div class="column">
+      <div class="column low_padding">
         <div class="is-three-fifths is-offset-one-fifth">
           <a  id="result_button">
           </a>
@@ -149,7 +117,7 @@
       </div>
     </div>
 
-    <div class="column">
+    <div class="column low_padding">
       <div class="column is-three-fifths is-offset-one-fifth">
         <div  id="spans"></div>
       </div>

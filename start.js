@@ -1,22 +1,26 @@
 next=document.getElementById("next")
-s=document.getElementById("btn")
-next.hidden=true
+second=document.getElementById("btn2")
 submit=document.getElementById("submitForm")
 questions=document.getElementById("q")
 type=document.getElementById("type")
 cat=document.getElementById("cat")
+// url=document.getElementById("new_url")
 
 function form_appear(){
-    s.remove()
+    second.remove()
     next.hidden=false
 }
 
+let no
+let diff
+let category
+
 function onSubmit(){
-    no=questions.value
-    diff=type.value
-    category=cat.value
+    
 }
 
-s.addEventListener("click",form_appear)
+second.addEventListener("click",form_appear)
 submit.addEventListener("click",onSubmit)
-// export {no,diff,category}
+
+export {no,diff,category}
+

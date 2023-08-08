@@ -1,4 +1,6 @@
-const url = "https://opentdb.com/api.php?amount=10&type=boolean"
+// import { category } from "./start"
+
+const url = "https://opentdb.com/api.php"
 btn=document.getElementById("quiz")
 s=document.getElementById("btn")
 que=document.getElementById("#question")
@@ -13,18 +15,14 @@ to_be_deleted=document.getElementById("stuff")
 completed_msg=document.getElementById("done_text")
 inc=document.getElementById("instructions")
 time.classList.add("quiztext")
+questions=document.getElementById("q")
+type=document.getElementById("type")
+cat=document.getElementById("cat")
 
-// import {no,diff,category} from "./start"
-
-// params={
-//     amount: no,
-//     difficulty:diff,
-//     category:category,
-//     type:"boolean",
-// }
-
+// import {no,diff,category} from "./start.js";
 
 let SEC=10
+let num
 let i=0
 let j
 let n
@@ -40,9 +38,11 @@ r.hidden=true
 let result_nodes=[]
 
 //Get data from trivia database.
-const res=async()=>{
-    const response=await axios.get(url)
+const res=async(parameters)=>{
+    console.log(parameters)
+    const response=await axios.get(url,{params:parameters})
     data=response.data.results
+    console.log(data)
     data.forEach(addItems)
 }
 
@@ -69,7 +69,7 @@ function add_user_answers(){
 
 function on_submit(){
     add_user_answers()
-    if(user_answer.length==10){
+    if(user_answer.length==num){
         submit_button.classList.add("button")
         submit_button.disabled=true
         result_button=create_button("Go to Result")
@@ -89,7 +89,7 @@ function add_radio_buttons() {
 
 //Display question from array.
 const next_question=()=>{
-    if(i<10){
+    if(i<num){
         que_text=question_arr[i]
         if (i==0){
             text=document.createElement('h1')
@@ -148,9 +148,7 @@ function create_button(b_string){
     the_button.textContent = b_string
     return the_button
 }
-
-//Make changes in DOM after clicking button.
-function clicked(){
+function afterClick(){
     inc.remove()
     btn.remove()
     submit_button=create_button("Submit")
@@ -158,6 +156,20 @@ function clicked(){
     clearInterval(display_time);
     display()
     add_radio_buttons()
+}
+//Make changes in DOM after clicking button.
+function clicked(){
+    btn.disabled=true
+    params={
+        amount: Number(questions.value),
+        difficulty:type.value,
+        // category:Number(cat.value),
+        type:"boolean",
+    }
+    num=Number(questions.value)
+    getData(params)
+    setTimeout(afterClick,2000)
+
 }
 
 function check_answer(){
@@ -201,13 +213,18 @@ function check_answer(){
 }
 
 //Get data.
-try{
-    res()
+function getData(parameters){
+    console.log(parameters)
+    try{
+        res(parameters)
+        console.log(parameters)
+    }
+    catch(err){
+        err_msg=document.createElement("p")
+        err_msg.innerText=err
+        container.appendChild(err_msg)
+    }
 }
-catch(err){
-    err_msg=document.createElement("p")
-    err_msg.innerText=err
-    container.appendChild(err_msg)
-}
+
 
 btn.addEventListener("click",clicked)

@@ -214,3 +214,12 @@ span{
   display: flex;
   justify-content: space-evenly;
 }
+#btn2{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+/* .column{
+  padding: 0px !important;
+} */
